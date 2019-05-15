@@ -8,6 +8,8 @@ public class Controller : MonoBehaviour
 	public GameObject tH, tC, tN, tO, tNa, tCl; //targets
     public GameObject h, c, n, o, na, cl; //atomos
 	public GameObject h2o1, h2o2, ch41, ch42, co1, co2, nacl1, nacl2, nh31, nh32; //moleculas
+	public GameObject hDet, cDet, nDet, oDet, naDet, clDet; //detAtomos
+	public GameObject h2oDet, ch4Det, coDet, naclDet, nh3Det; //detMoleculas
 
 	public bool aux1, aux2, aux3, aux4, aux5;
 	
@@ -27,10 +29,19 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+		if(tH.transform.position.x == 100f) hDet.SetActive(false);
+		if(tC.transform.position.x == 200f) cDet.SetActive(false);
+		if(tN.transform.position.x == 300f) nDet.SetActive(false);
+		if(tO.transform.position.x == 400f) oDet.SetActive(false);
+		if(tNa.transform.position.x == 500f) naDet.SetActive(false);
+		if(tCl.transform.position.x == 600f) clDet.SetActive(false);
+				
 		//h2o		
 		if (Math.Abs((tH.transform.position.x - tO.transform.position.x))<10f && aux1) {
 			o.SetActive(false);
 			h.SetActive(false);
+			oDet.SetActive(false);
+			hDet.SetActive(false);
 			if((tH.transform.position.x - tO.transform.position.x)<0)
 				h2o2.SetActive(true);
 			else
@@ -44,6 +55,7 @@ public class Controller : MonoBehaviour
 			h.SetActive(true);
 			h2o1.SetActive(false);
 			h2o2.SetActive(false);
+			h2oDet.SetActive(false);
 			aux1=true;
 		}
 		
@@ -51,6 +63,8 @@ public class Controller : MonoBehaviour
 		if (Math.Abs((tC.transform.position.x - tO.transform.position.x))<10f && aux2) {
 			c.SetActive(false);
 			o.SetActive(false);
+			cDet.SetActive(false);
+			oDet.SetActive(false);
 			if((tC.transform.position.x - tO.transform.position.x)<0)
 				co1.SetActive(true);
 			else
@@ -64,6 +78,7 @@ public class Controller : MonoBehaviour
 			o.SetActive(true);
 			co1.SetActive(false);
 			co2.SetActive(false);
+			coDet.SetActive(false);
 			aux2=true;
 		}
 		
@@ -71,6 +86,8 @@ public class Controller : MonoBehaviour
 		if (Math.Abs((tN.transform.position.x - tH.transform.position.x))<10f && aux3) {
 			n.SetActive(false);
 			h.SetActive(false);
+			nDet.SetActive(false);
+			hDet.SetActive(false);
 			if((tN.transform.position.x - tH.transform.position.x)<0)
 				nh31.SetActive(true);
 			else
@@ -84,6 +101,7 @@ public class Controller : MonoBehaviour
 			h.SetActive(true);
 			nh31.SetActive(false);
 			nh32.SetActive(false);
+			nh3Det.SetActive(false);
 			aux3=true;
 		}
 		
@@ -91,6 +109,8 @@ public class Controller : MonoBehaviour
 		if (Math.Abs((tC.transform.position.x - tH.transform.position.x))<10f && aux4) {
 			c.SetActive(false);
 			h.SetActive(false);
+			cDet.SetActive(false);
+			hDet.SetActive(false);
 			if((tC.transform.position.x - tH.transform.position.x)<0)
 				ch41.SetActive(true);
 			else
@@ -104,6 +124,7 @@ public class Controller : MonoBehaviour
 			h.SetActive(true);
 			ch41.SetActive(false);
 			ch42.SetActive(false);
+			ch4Det.SetActive(false);
 			aux4=true;
 		}
 		
@@ -111,6 +132,8 @@ public class Controller : MonoBehaviour
 		if (Math.Abs((tNa.transform.position.x - tCl.transform.position.x))<10f && aux5) {
 			na.SetActive(false);
 			cl.SetActive(false);
+			naDet.SetActive(false);
+			clDet.SetActive(false);
 			if((tNa.transform.position.x - tCl.transform.position.x)<0)
 				nacl1.SetActive(true);
 			else
@@ -124,8 +147,40 @@ public class Controller : MonoBehaviour
 			cl.SetActive(true);
 			nacl1.SetActive(false);
 			nacl2.SetActive(false);
+			naclDet.SetActive(false);
 			aux5=true;
 		}
 		
+		if(Input.GetKey(KeyCode.I)) {
+			if(aux1) {
+				if(tH.transform.position.x != 100f && aux3 && aux4) hDet.SetActive(true);
+				if(tO.transform.position.x != 400f && aux2) oDet.SetActive(true);
+			}
+			else h2oDet.SetActive(true);
+			
+			if(aux2) {
+				if(tC.transform.position.x != 200f && aux4) cDet.SetActive(true);
+				if(tO.transform.position.x != 400f && aux1) oDet.SetActive(true);
+			}
+			else coDet.SetActive(true);
+			
+			if(aux3) {
+				if(tN.transform.position.x != 300f) nDet.SetActive(true);
+				if(tH.transform.position.x != 100f && aux1 && aux4) hDet.SetActive(true);
+			}
+			else nh3Det.SetActive(true);
+			
+			if(aux4) {
+				if(tH.transform.position.x != 100f && aux1 && aux3) hDet.SetActive(true);
+				if(tC.transform.position.x != 200f && aux2) cDet.SetActive(true);
+			}
+			else ch4Det.SetActive(true);
+			
+			if(aux5) {
+				if(tNa.transform.position.x != 500f) naDet.SetActive(true);
+				if(tCl.transform.position.x != 600f) clDet.SetActive(true);
+			}
+			else naclDet.SetActive(true);
+		}		
     }
 }
