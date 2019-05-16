@@ -37,7 +37,7 @@ public class Controller : MonoBehaviour
 		if(tCl.transform.position.x == 600f) clDet.SetActive(false);
 				
 		//h2o		
-		if (Math.Abs((tH.transform.position.x - tO.transform.position.x))<10f && aux1) {
+		if (Vector3.Distance(tH.transform.position, tO.transform.position)<10f && aux1) {
 			o.SetActive(false);
 			h.SetActive(false);
 			oDet.SetActive(false);
@@ -50,7 +50,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		
-		if(Math.Abs((tH.transform.position.x - tO.transform.position.x))>=10f && !aux1) {
+		if(Vector3.Distance(tH.transform.position, tO.transform.position)>=10f && !aux1) {
 			o.SetActive(true);
 			h.SetActive(true);
 			h2o1.SetActive(false);
@@ -60,7 +60,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		//co		
-		if (Math.Abs((tC.transform.position.x - tO.transform.position.x))<10f && aux2) {
+		if (Vector3.Distance(tC.transform.position, tO.transform.position)<10f && aux2) {
 			c.SetActive(false);
 			o.SetActive(false);
 			cDet.SetActive(false);
@@ -73,7 +73,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		
-		if(Math.Abs((tC.transform.position.x - tO.transform.position.x))>=10f && !aux2) {
+		if(Vector3.Distance(tC.transform.position, tO.transform.position)>=10f && !aux2) {
 			c.SetActive(true);
 			o.SetActive(true);
 			co1.SetActive(false);
@@ -83,7 +83,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		//nh3	
-		if (Math.Abs((tN.transform.position.x - tH.transform.position.x))<10f && aux3) {
+		if (Vector3.Distance(tN.transform.position, tH.transform.position)<10f && aux3) {
 			n.SetActive(false);
 			h.SetActive(false);
 			nDet.SetActive(false);
@@ -96,7 +96,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		
-		if(Math.Abs((tN.transform.position.x - tH.transform.position.x))>=10f && !aux3) {
+		if(Vector3.Distance(tN.transform.position, tH.transform.position)>=10f && !aux3) {
 			n.SetActive(true);
 			h.SetActive(true);
 			nh31.SetActive(false);
@@ -106,7 +106,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		//ch4		
-		if (Math.Abs((tC.transform.position.x - tH.transform.position.x))<10f && aux4) {
+		if (Vector3.Distance(tC.transform.position, tH.transform.position)<10f && aux4) {
 			c.SetActive(false);
 			h.SetActive(false);
 			cDet.SetActive(false);
@@ -119,7 +119,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		
-		if(Math.Abs((tC.transform.position.x - tH.transform.position.x))>=10f && !aux4) {
+		if(Vector3.Distance(tC.transform.position, tH.transform.position)>=10f && !aux4) {
 			c.SetActive(true);
 			h.SetActive(true);
 			ch41.SetActive(false);
@@ -129,7 +129,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		//nacl		
-		if (Math.Abs((tNa.transform.position.x - tCl.transform.position.x))<10f && aux5) {
+		if (Vector3.Distance(tNa.transform.position, tCl.transform.position)<10f && aux5) {
 			na.SetActive(false);
 			cl.SetActive(false);
 			naDet.SetActive(false);
@@ -142,7 +142,7 @@ public class Controller : MonoBehaviour
 		}
 		
 		
-		if(Math.Abs((tNa.transform.position.x - tCl.transform.position.x))>=10f && !aux5) {
+		if(Vector3.Distance(tNa.transform.position, tCl.transform.position)>=10f && !aux5) {
 			na.SetActive(true);
 			cl.SetActive(true);
 			nacl1.SetActive(false);
