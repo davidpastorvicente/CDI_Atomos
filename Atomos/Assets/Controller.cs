@@ -112,9 +112,9 @@ public class Controller : MonoBehaviour
 			cDet.SetActive(false);
 			hDet.SetActive(false);
 			if((tC.transform.position.x - tH.transform.position.x)<0)
-				ch41.SetActive(true);
-			else
 				ch42.SetActive(true);
+			else
+				ch41.SetActive(true);
 			aux4=false;
 		}
 		
@@ -151,7 +151,7 @@ public class Controller : MonoBehaviour
 			aux5=true;
 		}
 		
-		if(Input.GetKey(KeyCode.I)) {
+		if(Input.GetKeyDown(KeyCode.I)) {
 			if(aux1) {
 				if(tH.transform.position.x != 100f && aux3 && aux4) hDet.SetActive(true);
 				if(tO.transform.position.x != 400f && aux2) oDet.SetActive(true);
